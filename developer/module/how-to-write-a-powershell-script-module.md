@@ -23,7 +23,7 @@ You create a script module by saving a valid PowerShell script to a .psm1 file, 
 
    Saving a script with the .psm1 extension means that you can use the module cmdlets, such as [Import-Module](/powershell/module/Microsoft.PowerShell.Core/Import-Module), on it. These cmdlets exist primarily so that you can easily import and export your code onto other user's systems. (The alternate solution would be to load up your code on other systems and then dot-source it into active memory, which isn't a particularly scalable solution.) For more information see the **Module Cmdlets and Variables** section in [Windows PowerShell Modules](./understanding-a-windows-powershell-module.md) Note that, by default, all functions in your script will be accessible to users who import your .psm1 file, but properties will not.
 
-   An example PowerShell script, entitled Get-Calender, is available at the end of this topic.
+   An example PowerShell script, entitled Show-Calendar, is available at the end of this topic.
 
    ```powershell
    function Show-Calendar {
@@ -72,12 +72,10 @@ You create a script module by saving a valid PowerShell script to a .psm1 file, 
    The paths where you can install your module are located in the `$env:PSModulePath` global variable. For example, a common path to save a module on a system would be `%SystemRoot%/users/<user>/Documents/WindowsPowerShell/Modules/<moduleName>`. Be sure to create a folder for your module to exist in, even if it is only a single .psm1 file. If you did not save your module to one of these paths, you would have to pass in the location of your module in the call to `Import-Module`. (Otherwise, PowerShell would not be able to find it.) Starting with PowerShell 3.0, if you have placed your module on one of the PowerShell module paths, you do not need to explicitly import it: simply having a user call your function will automatically load it. For more information on the module path, see [Importing a PowerShell Module](./importing-a-powershell-module.md) and [PSModulePath Environment Variable](./modifying-the-psmodulepath-installation-path.md).
 
 7. To remove a module from active service, make a call to [Remove-Module](/powershell/module/Microsoft.PowerShell.Core/Remove-Module).
-7. To remove a module from active service, make a call to [Remove-Module](/powershell/module/Microsoft.PowerShell.Core/Remove-Module).
 
 Note that [Remove-Module](/powershell/module/Microsoft.PowerShell.Core/Remove-Module) removes your module from active memory - it does not actually delete it from where you saved the module files.
-Note that [Remove-Module](/powershell/module/Microsoft.PowerShell.Core/Remove-Module) removes your module from active memory - it does not actually delete it from where you saved the module files.
 
-### Get-Calendar code example
+### Show-Calendar code example
 
 The following example is a simple script module that contains a single function named Show-Calendar. This function displays a visual representation of a calendar. In addition, the sample contains the PowerShell Help strings for the synopsis, description, parameter values, and example. Note that the last line of code indicates that the Show-Calendar function will be exported as a module member when the module is imported.
 

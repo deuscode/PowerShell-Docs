@@ -1,40 +1,41 @@
 ---
-ms.date:  06/09/2017
-schema:  2.0.0
-locale:  en-us
-keywords:  powershell,cmdlet
-online version:  http://go.microsoft.com/fwlink/?LinkId=821781
-external help file:  Microsoft.PowerShell.Commands.Utility.dll-Help.xml
-title:  Get-Date
+external help file: Microsoft.PowerShell.Commands.Utility.dll-Help.xml
+keywords: powershell,cmdlet
+locale: en-us
+Module Name: Microsoft.PowerShell.Utility
+ms.date: 06/09/2017
+online version: http://go.microsoft.com/fwlink/?LinkId=821781
+schema: 2.0.0
+title: Get-Date
 ---
 
 # Get-Date
 
-## Synopsis
+## SYNOPSIS
 Gets the current date and time.
 
-## Syntax
+## SYNTAX
 
-### Net (Default)
-```powershell
+### net (Default)
+```
 Get-Date [[-Date] <DateTime>] [-Year <Int32>] [-Month <Int32>] [-Day <Int32>] [-Hour <Int32>] [-Minute <Int32>]
  [-Second <Int32>] [-Millisecond <Int32>] [-DisplayHint <DisplayHintType>] [-Format <String>]
  [<CommonParameters>]
 ```
 
 ### UFormat
-```powershell
+```
 Get-Date [[-Date] <DateTime>] [-Year <Int32>] [-Month <Int32>] [-Day <Int32>] [-Hour <Int32>] [-Minute <Int32>]
  [-Second <Int32>] [-Millisecond <Int32>] [-DisplayHint <DisplayHintType>] [-UFormat <String>]
  [<CommonParameters>]
 ```
 
-## Description
+## DESCRIPTION
 The `Get-Date` cmdlet gets a **DateTime** object that represents the current date or a date that you specify.
 It can format the date and time in several Windows and UNIX formats.
 You can use `Get-Date` to generate a date or time character string, and then send the string to other cmdlets or programs.
 
-## Examples
+## EXAMPLES
 
 ### Example 1
 
@@ -166,6 +167,7 @@ This command gets a **DateTime** object and displays the current date and time i
 ```powershell
 Get-Date
 ```
+
 ```
 Tuesday, September 26, 2006 11:25:31 AM
 ```
@@ -221,7 +223,7 @@ mkdir C:\ps-test\$timestamp
 ```
 
 ```
-    Directory: C:\ps-test
+Directory: C:\ps-test
 
 Mode                LastWriteTime     Length Name
 ----                -------------     ------ ----
@@ -235,7 +237,7 @@ The second command prepares the timestamp to be used in a directory name. The co
 The third command uses the Mkdir function to create a directory with the name in the `$timestamp` variable.
 This example shows how to use the `Get-Date` cmdlet to create a timestamp and how to use the timestamp in or as part of a directory name.
 
-## Parameters
+## PARAMETERS
 
 ### -Date
 Specifies a date and time.
@@ -248,8 +250,8 @@ Type: DateTime
 Parameter Sets: (All)
 Aliases: LastWriteTime
 
+Required: False
 Position: 0
-Default value: None
 Default value: Current date
 Accept pipeline input: True (ByPropertyName, ByValue)
 Accept wildcard characters: False
@@ -454,14 +456,14 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
-This cmdlet supports the common parameters: `-Debug`, `-ErrorAction`, `-ErrorVariable`, `-InformationAction`, `-InformationVariable`, `-OutVariable`, `-OutBuffer`, `-PipelineVariable`, `-Verbose`, `-WarningAction`, and `-WarningVariable`. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
-## Inputs
+## INPUTS
 
 ### None
 You cannot pipe input to this cmdlet.
 
-## Outputs
+## OUTPUTS
 
 ### System.DateTime or System.String
 When you use the `-Format` or `-UFormat` parameters, `Get-Date` returns a string.
@@ -472,117 +474,49 @@ Otherwise, it returns a **DateTime** object.
 
   When you pipe a date to cmdlets that expect string input, such as the Add-Content cmdlet, Windows PowerShell converts the **DateTime** object to a string before adding it to the file. The default `ToString()` format is short date and long time. To specify an alternate format, use the `-Format` or `-UFormat` parameters of `Get-Date`.
 
-  * Uformat Values:
+* Here are the valid **UFormat** specifiers, each of which must be preceded by `%`, for example, `Get-Date -UFormat %Y%m%d`
 
-    The following are the values of the `-UFormat` parameter. The format for the command is:
+| Format specifier | Meaning | Example |
+| ---------------- | ------- | ------- |
+| A | Day of the week - full name | Monday |
+| a | Day of the week - abbreviated name | Mon |
+| B | Month name - full | January |
+| b | Month name - abbreviated | Jan |
+| C | Century | 20 for 2006 |
+| c | Date and time - abbreviated | Fri Jun 16 10:31:27 2006 |
+| D | Date in mm/dd/yy format | 06/14/06 |
+| d | Day of the month - 2 digits | 05 |
+| e | Day of the month - digit preceded by a space | \<space\>5 |
+| G | Same as 'Y' | |
+| g | Same as 'y' | |
+| H | Hour in 24-hour format | 17 |
+| h | Same as 'b' | |
+| I | Hour in 12 hour format | 05 |
+| j | Day of the year | 1-366 |
+| k | Same as 'H' | |
+| l | Same as 'I' (Upper-case I) | 05 |
+| M | Minutes | 35 |
+| m | Month number | 06 |
+| n | newline character | |
+| p | AM or PM | |
+| R | Time in 24-hour format -no seconds | 17:45 |
+| r | Time in 12-hour format | 09:15:36 AM |
+| S | Seconds | 05 |
+| s | Seconds elapsed since January 1, 1970 00:00:00 | 1150451174.95705 |
+| t | Horizontal tab character | |
+| T | Time in 24 hour format | 17:45:52 |
+| U | Same as 'W' | |
+| u | Day of the week - number | Monday = 1 |
+| V | Week of the year | 01-53 |
+| w | Same as 'u' | |
+| W | Week of the year | 00-52 |
+| X | Same as 'T' |
+| x | Date in standard format for locale | 09/12/07 for English-US |
+| Y | Year in 4-digit format | 2006 |
+| y | Year in 2-digit format | 06 |
+| Z | Time zone offset from Universal Time Coordinate (UTC) | -07 |
 
-    `Get-Date -UFormat %\<value\>`
-
-    For example,
-
-    `Get-Date -UFormat %d`
-
-
-     * Date-Time:
-
-       Date and time - full
-
-       (default) : (Friday, June 16, 2006 10:31:27 AM)
-
-       `c` : Date and time - abbreviated (Fri Jun 16 10:31:27 2006)
-
-      * Date:
-
-        `D` : Date in mm/dd/yy format (06/14/06)
-
-        `x` : Date in standard format for locale (09/12/07 for English-US)
-
-      * Year:
-
-        `C` : Century (20 for 2006)
-
-        `Y` : Year in 4-digit format (2006)
-
-        `y` : Year in 2-digit format (06)
-
-        `G` : Same as 'Y'
-
-        `g` : Same as 'y'
-
-      * Month:
-
-        `b` : Month name - abbreviated (Jan)
-
-        `B` : Month name - full (January)
-
-        `h` : Same as 'b'
-
-        `m` : Month number (06)
-
-      * Week:
-
-        `W` : Week of the year (00-52)
-
-        `V` : Week of the year (01-53)
-
-        `U` : Same as 'W'
-
-      * Day:
-
-        `a` : Day of the week - abbreviated name (Mon)
-
-        `A` : Day of the week - full name (Monday)
-
-        `u` : Day of the week - number (Monday = 1)
-
-        `d` : Day of the month - 2 digits (05)
-
-        `e` : Day of the month - digit preceded by a space ( 5)
-
-        `j` : Day of the year - (1-366)
-
-        `w` : Same as 'u'
-
-      * Time:
-
-        `p` : AM or PM
-
-        `r` : Time in 12-hour format (09:15:36 AM)
-
-        `R` : Time in 24-hour format - no seconds (17:45)
-
-        `T` : Time in 24 hour format (17:45:52)
-
-        `X` : Same as 'T'
-
-        `Z` : Time zone offset from Universal Time Coordinate (UTC) (-07)
-
-      * Hour:
-
-        `H` :  Hour in 24-hour format (17)
-
-        `I` :   Hour in 12 hour format (05)
-
-        `k` :  Same as 'H'
-
-        `l` :   Same as 'I' (Upper-case I = Lower-case L)
-
-      * Minutes & Seconds:
-
-        `M` : Minutes (35)
-
-        `S` : Seconds (05)
-
-        `s` : Seconds elapsed since January 1, 1970 00:00:00 (1150451174.95705)
-
-      * Special Characters:
-
-        `n` : newline character (\n)
-
-        `t` : Tab character (\t)
-
-
-## Related Links
+## RELATED LINKS
 
 [New-TimeSpan](New-TimeSpan.md)
 

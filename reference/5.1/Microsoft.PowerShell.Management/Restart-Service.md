@@ -1,11 +1,12 @@
 ---
-ms.date:  06/09/2017
-schema:  2.0.0
-locale:  en-us
-keywords:  powershell,cmdlet
-online version:  http://go.microsoft.com/fwlink/?LinkId=821629
-external help file:  Microsoft.PowerShell.Commands.Management.dll-Help.xml
-title:  Restart-Service
+external help file: Microsoft.PowerShell.Commands.Management.dll-Help.xml
+keywords: powershell,cmdlet
+locale: en-us
+Module Name: Microsoft.PowerShell.Management
+ms.date: 06/09/2017
+online version: http://go.microsoft.com/fwlink/?LinkId=821629
+schema: 2.0.0
+title: Restart-Service
 ---
 
 # Restart-Service
@@ -17,22 +18,19 @@ Stops and then starts one or more services.
 
 ### InputObject (Default)
 ```
-Restart-Service [-InputObject] <ServiceController[]>
- [-Force] [-PassThru] [-Include <String[]>] [-Exclude <String[]>]
- [-WhatIf] [-Confirm] [<CommonParameters>]
+Restart-Service [-Force] [-InputObject] <ServiceController[]> [-PassThru] [-Include <String[]>]
+ [-Exclude <String[]>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### Default
 ```
-Restart-Service [-Name] <String[]>
- [-Force] [-PassThru] [-Include <String[]>] [-Exclude <String[]>]
- [-WhatIf] [-Confirm] [<CommonParameters>]
+Restart-Service [-Force] [-Name] <String[]> [-PassThru] [-Include <String[]>] [-Exclude <String[]>] [-WhatIf]
+ [-Confirm] [<CommonParameters>]
 ```
 
 ### DisplayName
 ```
-Restart-Service -DisplayName <String[]>
- [-Force] [-PassThru] [-Include <String[]>] [-Exclude <String[]>]
+Restart-Service [-Force] [-PassThru] -DisplayName <String[]> [-Include <String[]>] [-Exclude <String[]>]
  [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
@@ -44,21 +42,24 @@ You can specify the services by their service names or display names, or you can
 ## EXAMPLES
 
 ### Example 1: Restart a service on the local computer
-```
+
+```powershell
 PS C:\> Restart-Service -Name winmgmt
 ```
 
 This command restarts the Windows Management Instrumentation service (WinMgmt) on the local computer.
 
 ### Example 2: Exclude a service
-```
+
+```powershell
 PS C:\> Restart-Service -DisplayName "net*" -Exclude "net logon"
 ```
 
 This command restarts the services that have a display name that starts with Net, except for the Net Logon service.
 
 ### Example 3: Start all stopped network services
-```
+
+```powershell
 PS C:\> Get-Service -Name "net*" | Where-Object {$_.Status -eq "Stopped"} | Restart-Service
 ```
 
@@ -72,24 +73,9 @@ In practice, you would use the *WhatIf* parameter to determine the effect of the
 
 ## PARAMETERS
 
-### -Confirm
-Prompts you for confirmation before running the cmdlet.
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: (All)
-Aliases: cf
-
-Required: False
-Position: Named
-Default value: False
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
 ### -DisplayName
 Specifies the display names of services to restarted.
-Wildcard carachters are permitted.
+Wildcard characters are permitted.
 
 ```yaml
 Type: String[]
@@ -182,7 +168,7 @@ Required: True
 Position: 0
 Default value: None
 Accept pipeline input: True (ByPropertyName, ByValue)
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -PassThru
@@ -197,6 +183,21 @@ Aliases:
 Required: False
 Position: Named
 Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Confirm
+Prompts you for confirmation before running the cmdlet.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: cf
+
+Required: False
+Position: Named
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```

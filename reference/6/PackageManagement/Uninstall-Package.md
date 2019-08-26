@@ -1,16 +1,16 @@
 ---
-ms.date:  06/09/2017
-schema:  2.0.0
-locale:  en-us
-keywords:  powershell,cmdlet
-online version:  http://go.microsoft.com/fwlink/?LinkID=517142
-external help file:  Microsoft.PowerShell.PackageManagement.dll-Help.xml
-title:  Uninstall-Package
+external help file: Microsoft.PowerShell.PackageManagement.dll-Help.xml
+keywords: powershell,cmdlet
+locale: en-us
+Module Name: PackageManagement
+ms.date: 06/09/2017
+online version: http://go.microsoft.com/fwlink/?LinkID=517142
+schema: 2.0.0
+title: Uninstall-Package
 ---
 # Uninstall-Package
 
 ## SYNOPSIS
-
 Uninstalls one or more software packages.
 
 ## SYNTAX
@@ -30,46 +30,18 @@ Uninstall-Package [-Name] <String[]> [-RequiredVersion <String>] [-MinimumVersio
  [-ProviderName <String[]>] [<CommonParameters>]
 ```
 
-### Programs:PackageByInputObject
-
-```
-Uninstall-Package [-AllVersions] [-Force] [-ForceBootstrap] [-WhatIf] [-Confirm] [-IncludeWindowsInstaller]
- [-IncludeSystemComponent] [<CommonParameters>]
-```
-
-### Programs:PackageBySearch
-
-```
-Uninstall-Package [-AllVersions] [-Force] [-ForceBootstrap] [-WhatIf] [-Confirm] [-IncludeWindowsInstaller]
- [-IncludeSystemComponent] [<CommonParameters>]
-```
-
-### msi:PackageByInputObject
-
-```
-Uninstall-Package [-AllVersions] [-Force] [-ForceBootstrap] [-WhatIf] [-Confirm]
- [-AdditionalArguments <String[]>] [<CommonParameters>]
-```
-
-### msi:PackageBySearch
-
-```
-Uninstall-Package [-AllVersions] [-Force] [-ForceBootstrap] [-WhatIf] [-Confirm]
- [-AdditionalArguments <String[]>] [<CommonParameters>]
-```
-
 ### NuGet:PackageByInputObject
 
 ```
 Uninstall-Package [-AllVersions] [-Force] [-ForceBootstrap] [-WhatIf] [-Confirm] [-Destination <String>]
- [-ExcludeVersion] [-Scope <String>] [<CommonParameters>]
+ [-ExcludeVersion] [-Scope <String>] [-SkipDependencies] [<CommonParameters>]
 ```
 
 ### NuGet:PackageBySearch
 
 ```
 Uninstall-Package [-AllVersions] [-Force] [-ForceBootstrap] [-WhatIf] [-Confirm] [-Destination <String>]
- [-ExcludeVersion] [-Scope <String>] [<CommonParameters>]
+ [-ExcludeVersion] [-Scope <String>] [-SkipDependencies] [<CommonParameters>]
 ```
 
 ### PowerShellGet:PackageByInputObject
@@ -77,7 +49,7 @@ Uninstall-Package [-AllVersions] [-Force] [-ForceBootstrap] [-WhatIf] [-Confirm]
 ```
 Uninstall-Package [-AllVersions] [-Force] [-ForceBootstrap] [-WhatIf] [-Confirm] [-Scope <String>]
  [-PackageManagementProvider <String>] [-Type <String>] [-AllowClobber] [-SkipPublisherCheck] [-InstallUpdate]
- [-NoPathUpdate] [<CommonParameters>]
+ [-NoPathUpdate] [-AllowPrereleaseVersions] [<CommonParameters>]
 ```
 
 ### PowerShellGet:PackageBySearch
@@ -85,7 +57,7 @@ Uninstall-Package [-AllVersions] [-Force] [-ForceBootstrap] [-WhatIf] [-Confirm]
 ```
 Uninstall-Package [-AllVersions] [-Force] [-ForceBootstrap] [-WhatIf] [-Confirm] [-Scope <String>]
  [-PackageManagementProvider <String>] [-Type <String>] [-AllowClobber] [-SkipPublisherCheck] [-InstallUpdate]
- [-NoPathUpdate] [<CommonParameters>]
+ [-NoPathUpdate] [-AllowPrereleaseVersions] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -113,13 +85,27 @@ The *Force* parameter ensures that you are not prompted to confirm that you want
 
 ## PARAMETERS
 
-### -AdditionalArguments
-
-Specifies additional arguments.
+### -AllowClobber
 
 ```yaml
-Type: String[]
-Parameter Sets: msi:PackageByInputObject, msi:PackageBySearch
+Type: SwitchParameter
+Parameter Sets: PowerShellGet:PackageByInputObject, PowerShellGet:PackageBySearch
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -AllowPrereleaseVersions
+
+Allows packages marked as Prerelease to be uninstalled. 
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: PowerShellGet:PackageByInputObject, PowerShellGet:PackageBySearch
 Aliases:
 
 Required: False
@@ -136,6 +122,38 @@ Indicates that this cmdlet uninstalls all versions of the package.
 ```yaml
 Type: SwitchParameter
 Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Destination
+
+Specifies a string of the path to the input object.
+
+```yaml
+Type: String
+Parameter Sets: NuGet:PackageByInputObject, NuGet:PackageBySearch
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -ExcludeVersion
+
+Switch to exclude the version number in the folder path.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: NuGet:PackageByInputObject, NuGet:PackageBySearch
 Aliases:
 
 Required: False
@@ -177,38 +195,6 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -IncludeSystemComponent
-
-Specifies that this cmdlet uninstalls system components.
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: Programs:PackageByInputObject, Programs:PackageBySearch
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -IncludeWindowsInstaller
-
-Indicates that this cmdlet uninstalls the package through Windows Installer.
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: Programs:PackageByInputObject, Programs:PackageBySearch
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
 ### -InputObject
 
 Specifies a package by using the package's SoftwareIdentity type, which is shown in the results of the Get-Package cmdlet.
@@ -219,7 +205,7 @@ Parameter Sets: PackageByInputObject
 Aliases:
 
 Required: True
-Position: 1
+Position: 0
 Default value: None
 Accept pipeline input: True (ByValue)
 Accept wildcard characters: False
@@ -286,7 +272,21 @@ Parameter Sets: PackageBySearch
 Aliases:
 
 Required: True
-Position: 1
+Position: 0
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -NoPathUpdate
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: PowerShellGet:PackageByInputObject, PowerShellGet:PackageBySearch
+Aliases:
+
+Required: False
+Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -317,7 +317,7 @@ You can get package provider names by running the Get-PackageProvider cmdlet.
 Type: String[]
 Parameter Sets: PackageBySearch
 Aliases: Provider
-Accepted values: Programs, msi, msu, PowerShellGet, nuget, chocolatey
+Accepted values: Bootstrap, NuGet, PowerShellGet
 
 Required: False
 Position: Named
@@ -356,6 +356,36 @@ Type: String
 Parameter Sets: NuGet:PackageByInputObject, NuGet:PackageBySearch, PowerShellGet:PackageByInputObject, PowerShellGet:PackageBySearch
 Aliases:
 Accepted values: CurrentUser, AllUsers
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -SkipDependencies
+
+Switch which specifies to skip searching for dependencies.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: NuGet:PackageByInputObject, NuGet:PackageBySearch
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -SkipPublisherCheck
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: PowerShellGet:PackageByInputObject, PowerShellGet:PackageBySearch
+Aliases:
 
 Required: False
 Position: Named
@@ -415,80 +445,6 @@ Aliases: wi
 Required: False
 Position: Named
 Default value: False
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AllowClobber
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: PowerShellGet:PackageByInputObject, PowerShellGet:PackageBySearch
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Destination
-
-{{Fill Destination Description}}
-
-```yaml
-Type: String
-Parameter Sets: NuGet:PackageByInputObject, NuGet:PackageBySearch
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -ExcludeVersion
-
-{{Fill ExcludeVersion Description}}
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: NuGet:PackageByInputObject, NuGet:PackageBySearch
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -NoPathUpdate
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: PowerShellGet:PackageByInputObject, PowerShellGet:PackageBySearch
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -SkipPublisherCheck
-
-```yaml
-Type: SwitchParameter
-Parameter Sets: PowerShellGet:PackageByInputObject, PowerShellGet:PackageBySearch
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```

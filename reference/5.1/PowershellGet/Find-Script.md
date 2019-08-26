@@ -1,11 +1,12 @@
 ---
-ms.date:  06/09/2017
-schema:  2.0.0
-locale:  en-us
-keywords:  powershell,cmdlet
-online version:  http://go.microsoft.com/fwlink/?LinkId=822322
-external help file:  PSModule-help.xml
-title:  Find-Script
+external help file: PSModule-help.xml
+keywords: powershell,cmdlet
+locale: en-us
+Module Name: PowerShellGet
+ms.date: 06/09/2017
+online version: http://go.microsoft.com/fwlink/?LinkId=822322
+schema: 2.0.0
+title: Find-Script
 ---
 
 # Find-Script
@@ -16,10 +17,10 @@ Finds a script.
 ## SYNTAX
 
 ```
-Find-Script [[-Name] <String[]>] [-MinimumVersion <Version>] [-MaximumVersion <Version>]
- [-RequiredVersion <Version>] [-AllVersions] [-IncludeDependencies] [-Filter <String>] [-Tag <String[]>]
+Find-Script [[-Name] <String[]>] [-MinimumVersion <String>] [-MaximumVersion <String>]
+ [-RequiredVersion <String>] [-AllVersions] [-IncludeDependencies] [-Filter <String>] [-Tag <String[]>]
  [-Includes <String[]>] [-Command <String[]>] [-Proxy <Uri>] [-ProxyCredential <PSCredential>]
- [-Repository <String[]>] [-Credential <PSCredential>] [<CommonParameters>]
+ [-Repository <String[]>] [-Credential <PSCredential>] [-AllowPrerelease] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -32,9 +33,9 @@ The **Find-Script** cmdlet finds a specified script in registered repositories.
 PS C:\> Find-Script
 Version    Name                                Type       Repository           Description
 -------    ----                                ----       ----------           -----------
-2.5        Fabrkiam-ClientScript               Script     LocalRepo1           Description for the Fabrkiam-ClientScript script
-2.5        Fabrkiam-Script                     Script     LocalRepo1           Description for the Fabrkiam-Script script
-2.5        Fabrkiam-ServerScript               Script     LocalRepo1           Description for the Fabrkiam-ServerScript script
+2.5        Fabrikam-ClientScript               Script     LocalRepo1           Description for the Fabrikam-ClientScript script
+2.5        Fabrikam-Script                     Script     LocalRepo1           Description for the Fabrikam-Script script
+2.5        Fabrikam-ServerScript               Script     LocalRepo1           Description for the Fabrikam-ServerScript script
 2.5        Required-Script1                    Script     LocalRepo1           Description for the Required-Script1 script
 2.5        Required-Script2                    Script     LocalRepo1           Description for the Required-Script2 script
 2.5        Required-Script3                    Script     LocalRepo1           Description for the Required-Script3 script
@@ -132,7 +133,7 @@ This command finds a script and it dependencies.
 PS C:\> Find-Script -Tag "Tag1" -Repository "LocalRepo1"
 Version    Name                                Type       Repository           Description
 -------    ----                                ----       ----------           -----------
-1.0        Fabrkiam-ClientScript               Script     LocalRepo1           Description for the Fabrkiam-ClientScript script
+1.0        Fabrikam-ClientScript               Script     LocalRepo1           Description for the Fabrikam-ClientScript script
 ```
 
 This command finds scripts that have the tag Tag1 in the LocalRepo1 repository
@@ -152,8 +153,8 @@ This command finds a script that contains the specified command name.
 PS C:\> Find-Script -Includes "Workflow" -Repository "LocalRepo1"
 Version    Name                                Type       Repository           Description
 -------    ----                                ----       ----------           -----------
-2.5        Fabrkiam-ClientScript               Script     LocalRepo1           Description for the Fabrkiam-ClientScript script
-1.0        Fabrkiam-Script                     Script     LocalRepo1           Description for the Fabrkiam-Script script
+2.5        Fabrikam-ClientScript               Script     LocalRepo1           Description for the Fabrikam-ClientScript script
+1.0        Fabrikam-Script                     Script     LocalRepo1           Description for the Fabrikam-Script script
 ```
 
 This command finds workflow scripts in the LocalRepo1 repository.
@@ -171,6 +172,21 @@ Version    Name                                Type       Repository           D
 This command uses the wildcard character (*) to find scripts that begin with Required-Script.
 
 ## PARAMETERS
+
+### -AllowPrerelease
+Includes in the results scripts marked as a prerelease.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
 
 ### -AllVersions
 Indicates that this operation finds all script versions.
@@ -204,7 +220,6 @@ Accept wildcard characters: False
 ```
 
 ### -Credential
-
 
 ```yaml
 Type: PSCredential
@@ -270,7 +285,7 @@ Specifies the maximum, or newest, version of the script to find.
 The *MaximumVersion* and *RequiredVersion* parameters are mutually exclusive; you cannot use both parameters in the same command.
 
 ```yaml
-Type: Version
+Type: String
 Parameter Sets: (All)
 Aliases:
 
@@ -286,7 +301,7 @@ Specifies the minimum version of the script to find.
 The *MinimumVersion* and *RequiredVersion* parameters are mutually exclusive; you cannot use both parameters in the same command.
 
 ```yaml
-Type: Version
+Type: String
 Parameter Sets: (All)
 Aliases:
 
@@ -361,7 +376,7 @@ Accept wildcard characters: False
 Specifies the exact version number of the script to find.
 
 ```yaml
-Type: Version
+Type: String
 Parameter Sets: (All)
 Aliases:
 

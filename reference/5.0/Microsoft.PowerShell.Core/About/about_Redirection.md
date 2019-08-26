@@ -8,7 +8,6 @@ title:  about_Redirection
 # About Redirection
 
 ## Short description
-
 Explains how to redirect output from PowerShell to text files.
 
 ## Long description
@@ -28,7 +27,7 @@ You can use the following methods to redirect output:
 
 - Use the PowerShell redirection operators.
 
-### Powershell redirection operators
+### PowerShell redirection operators
 
 The redirection operators enable you to send streams of data to a file or the
 **Success** output stream.

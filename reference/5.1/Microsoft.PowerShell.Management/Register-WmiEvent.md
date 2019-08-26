@@ -1,11 +1,12 @@
 ---
-ms.date:  06/09/2017
-schema:  2.0.0
-locale:  en-us
-keywords:  powershell,cmdlet
-online version:  http://go.microsoft.com/fwlink/?LinkId=821613
-external help file:  Microsoft.PowerShell.Commands.Management.dll-Help.xml
-title:  Register-WmiEvent
+external help file: Microsoft.PowerShell.Commands.Management.dll-Help.xml
+keywords: powershell,cmdlet
+locale: en-us
+Module Name: Microsoft.PowerShell.Management
+ms.date: 06/09/2017
+online version: http://go.microsoft.com/fwlink/?LinkId=821613
+schema: 2.0.0
+title: Register-WmiEvent
 ---
 
 # Register-WmiEvent
@@ -33,18 +34,18 @@ Register-WmiEvent [-Namespace <String>] [-Credential <PSCredential>] [-ComputerN
 The **Register-WmiEvent** cmdlet subscribes to Windows Management Instrumentation (WMI) events on the local computer or on a remote computer.
 
 When the subscribed WMI event is raised, it is added to the event queue in your local session even if the event occurs on a remote computer.
-To get events in the event queue, use the Get-Eventcmdlet.
+To get events in the event queue, use the `Get-Event` cmdlet.
 
-You can use the parameters of **Register-WmiEvent** to subscribe to events on remote computers and to specify the property values of the events that can help you identify the event in the queue.
+You can use the parameters of `Register-WmiEvent` to subscribe to events on remote computers and to specify the property values of the events that can help you identify the event in the queue.
 You can also use the *Action* parameter to specify actions to take when a subscribed event is raised.
 
 When you subscribe to an event, an event subscriber is added to your session.
-To get the event subscribers in the session, use the Get-EventSubscriber cmdlet.
+To get the event subscribers in the session, use the `Get-EventSubscriber` cmdlet.
 To cancel the subscription, use the Unregister-Event cmdlet, which deletes the event subscriber from the session.
 
 New Common Information Model (CIM) cmdlets, introduced Windows PowerShell 3.0, perform the same tasks as the WMI cmdlets.
 The CIM cmdlets comply with WS-Management (WSMan) standards and with the CIM standard, which enables the cmdlets to use the same techniques to manage computers that run the Windows operating system and those that run other operating systems.
-Instead of using **Register-WmiEvent**, consider using the Register-CimIndicationEventhttp://go.microsoft.com/fwlink/?LinkId=227960 cmdlet.
+Instead of using `Register-WmiEvent`, consider using the [Register-CimIndicationEvent](http://go.microsoft.com/fwlink/?LinkId=227960) cmdlet.
 
 ## EXAMPLES
 
@@ -325,5 +326,7 @@ This cmdlet does not generate any output.
 If you close the current session, the event queue is discarded and the event subscription is canceled.
 
 *
+
+## RELATED LINKS
 
 ## RELATED LINKS

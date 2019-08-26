@@ -1,4 +1,4 @@
-﻿---
+---
 ms.date:  06/09/2017
 schema:  2.0.0
 locale:  en-us
@@ -97,7 +97,7 @@ These commands show how multiple **Export-ModuleMember** commands are interprete
 These commands create three functions and one alias, and then they export two of the functions and the alias.
 
 Without the **Export-ModuleMember** commands, all three of the functions and the alias would be exported.
-With the **Export-ModuleMember** commands, only the **Get-Test** and **Start-Test** functions and the STT alias are exported.
+With the **Export-ModuleMember** commands, only the **New-Test** and **Start-Test** functions and the STT alias are exported.
 
 ### Example 6: Export members in a dynamic module
 ```
@@ -235,7 +235,7 @@ Accept wildcard characters: True
 
 ### CommonParameters
 
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](./About/about_CommonParameters.md).
 
 ## INPUTS
 

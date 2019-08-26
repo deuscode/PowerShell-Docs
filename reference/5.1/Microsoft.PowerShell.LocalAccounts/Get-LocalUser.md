@@ -1,11 +1,12 @@
 ---
-ms.date:  06/09/2017
-schema:  2.0.0
-locale:  en-us
-keywords:  powershell,cmdlet
-online version:  http://go.microsoft.com/fwlink/?LinkId=822514
-external help file:  Microsoft.Powershell.LocalAccounts.dll-Help.xml
-title:  Get-LocalUser
+external help file: Microsoft.Powershell.LocalAccounts.dll-Help.xml
+keywords: powershell,cmdlet
+locale: en-us
+Module Name: Microsoft.PowerShell.LocalAccounts
+ms.date: 06/09/2017
+online version: http://go.microsoft.com/fwlink/?LinkId=822514
+schema: 2.0.0
+title: Get-LocalUser
 ---
 
 # Get-LocalUser
@@ -77,7 +78,7 @@ Required: False
 Position: 0
 Default value: None
 Accept pipeline input: True (ByPropertyName, ByValue)
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -SID

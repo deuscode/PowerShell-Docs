@@ -5,11 +5,9 @@ locale:  en-us
 keywords:  powershell,cmdlet
 title:  about_Remote_Disconnected_Sessions
 ---
-
 # About Remote Disconnected Sessions
 
 ## Short Description
-
 Explains how to disconnect from and reconnect to a PSSession
 
 ## Long Description
@@ -95,7 +93,7 @@ Beginning in Windows PowerShell 3.0, the `Get-PSSession` cmdlet gets
 PSSessions on the local computer and remote computers. It can also get
 PSSessions that were created in the current session.
 
-To get PSsessions on the local computer or remote computers, use the
+To get PSSessions on the local computer or remote computers, use the
 **ComputerName** or **ConnectionUri** parameters. Without parameters,
 `Get-PSSession` gets PSSession that were created in the local session,
 regardless of where they terminate.

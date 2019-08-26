@@ -1,11 +1,12 @@
 ---
-ms.date:  06/09/2017
-schema:  2.0.0
-locale:  en-us
-keywords:  powershell,cmdlet
-online version:  http://go.microsoft.com/fwlink/?LinkId=821492
-external help file:  System.Management.Automation.dll-Help.xml
-title:  Import-Module
+external help file: System.Management.Automation.dll-Help.xml
+keywords: powershell,cmdlet
+locale: en-us
+Module Name: Microsoft.PowerShell.Core
+ms.date: 06/09/2017
+online version: http://go.microsoft.com/fwlink/?LinkId=821492
+schema: 2.0.0
+title: Import-Module
 ---
 
 # Import-Module
@@ -75,7 +76,7 @@ The modules that you import must be installed on the local computer or a remote 
 
 Starting in Windows PowerShell 3.0, installed modules are automatically imported to the session when you use any commands or providers in the module.
 However, you can still use the `Import-Module` command to import a module and you can enable and disable automatic module importing by using the `$PSModuleAutoloadingPreference` preference variable.
-For more information about modules, see [about_Modules](/powershell/module/microsoft.powershell.core/about/about_modules).
+For more information about modules, see [about_Modules](About/about_Modules.md).
 For more information about the `$PSModuleAutoloadingPreference` variable, see [about_Preference_Variables](About/about_Preference_Variables.md).
 
 A module is a package that contains members that can be used in Windows PowerShell.
@@ -277,7 +278,7 @@ $a | Get-Member
 ```
 
 ```output
-    TypeName: System.Management.Automation.PSCustomObject
+TypeName: System.Management.Automation.PSCustomObject
 Name          MemberType   Definition
 ----          ----------   ----------
 Equals        Method       bool Equals(System.Object obj)
@@ -591,7 +592,7 @@ Accept wildcard characters: False
 
 ### -CimSession
 Specifies a CIM session on the remote computer.
-Enter a variable that contains the CIM session or a command that gets the CIM session, such as a [Get-CimSession](https://docs.microsoft.com/en-us/powershell/module/cimcmdlets/get-cimsession) command.
+Enter a variable that contains the CIM session or a command that gets the CIM session, such as a [Get-CimSession](https://docs.microsoft.com/powershell/module/cimcmdlets/get-cimsession) command.
 
 **Import-Module** uses the CIM session connection to import modules from the remote computer into the current session.
 When you use the commands from the imported module in the current session, the commands actually run on the remote computer.
@@ -834,33 +835,6 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -PSSession
-Specifies a Windows PowerShell user-managed session (**PSSession**) from which this cmdlet import modules into the current session.
-Enter a variable that contains a **PSSession** or a command that gets a **PSSession**, such as a Get-PSSession command.
-
-When you import a module from a different session into the current session, you can use the cmdlets from the module in the current session, just as you would use cmdlets from a local module.
-Commands that use the remote cmdlets actually run in the remote session, but the remoting details are managed in the background by Windows PowerShell.
-
-This parameter uses the Implicit Remoting feature of Windows PowerShell.
-It is equivalent to using the Import-PSSession cmdlet to import particular modules from a session.
-
-**Import-Module** cannot import Windows PowerShell Core modules from another session.
-The Windows PowerShell Core modules have names that begin with Microsoft.PowerShell.
-
-This parameter was introduced in Windows PowerShell 3.0.
-
-```yaml
-Type: PSSession
-Parameter Sets: PSSession, FullyQualifiedNameAndPSSession
-Aliases:
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
 ### -PassThru
 Returns an object representing the item with which you are working.
 By default, this cmdlet does not generate any output.
@@ -895,6 +869,33 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -PSSession
+Specifies a Windows PowerShell user-managed session (**PSSession**) from which this cmdlet import modules into the current session.
+Enter a variable that contains a **PSSession** or a command that gets a **PSSession**, such as a Get-PSSession command.
+
+When you import a module from a different session into the current session, you can use the cmdlets from the module in the current session, just as you would use cmdlets from a local module.
+Commands that use the remote cmdlets actually run in the remote session, but the remoting details are managed in the background by Windows PowerShell.
+
+This parameter uses the Implicit Remoting feature of Windows PowerShell.
+It is equivalent to using the Import-PSSession cmdlet to import particular modules from a session.
+
+**Import-Module** cannot import Windows PowerShell Core modules from another session.
+The Windows PowerShell Core modules have names that begin with Microsoft.PowerShell.
+
+This parameter was introduced in Windows PowerShell 3.0.
+
+```yaml
+Type: PSSession
+Parameter Sets: PSSession, FullyQualifiedNameAndPSSession
+Aliases:
+
+Required: True
 Position: Named
 Default value: None
 Accept pipeline input: False
@@ -979,8 +980,7 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
-
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](/powershell/module/microsoft.powershell.core/about/about_commonparameters).
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
@@ -993,12 +993,12 @@ You can pipe a module name, module object, or assembly object to `Import-Module`
 ### None, System.Management.Automation.PSModuleInfo, or System.Management.Automation.PSCustomObject
 
 By default, **Import-Module** does not generate any output.
-If you specify the *PassThru* parameter, the cmldet generates a **System.Management.Automation.PSModuleInfo** object that represents the module.
+If you specify the *PassThru* parameter, the cmdlet generates a **System.Management.Automation.PSModuleInfo** object that represents the module.
 If you specify the *AsCustomObject* parameter, it generates a **PSCustomObject** object.
 
 ## NOTES
 
-- Before you can import a module, the module must be installed on the local computer, that is, the module directory must be copied to a directory that is accessible to your local computer. For more information, see [about_Modules](/powershell/module/microsoft.powershell.core/about/about_modules).
+- Before you can import a module, the module must be installed on the local computer, that is, the module directory must be copied to a directory that is accessible to your local computer. For more information, see [about_Modules](About/about_Modules.md).
 
   You can also use the `PSSession` and `CIMSession` parameters to import modules that are installed on remote computers.
 However, commands that use the cmdlets in these modules actually run in the remote session on the remote computer.

@@ -1,11 +1,12 @@
 ---
-ms.date:  06/09/2017
-schema:  2.0.0
-locale:  en-us
-keywords:  powershell,cmdlet
-online version:  http://go.microsoft.com/fwlink/?LinkID=821525
-external help file:  System.Management.Automation.dll-Help.xml
-title:  Wait-Job
+external help file: System.Management.Automation.dll-Help.xml
+keywords: powershell,cmdlet
+locale: en-us
+Module Name: Microsoft.PowerShell.Core
+ms.date: 06/09/2017
+online version: http://go.microsoft.com/fwlink/?LinkID=821525
+schema: 2.0.0
+title: Wait-Job
 ---
 
 # Wait-Job
@@ -105,7 +106,7 @@ It also shows how to use the **Wait-Job** cmdlet to wait for remote jobs to fini
 
 The first command creates a **PSSession** on each of the computers listed in the Machines.txt file and stores the **PSSession** objects in the $s variable.
 The command uses the Get-Content cmdlet to get the contents of the file.
-The **Get-Content** command is enclosed in parentheses to make sure that that it runs before the New-PSSession command.
+The **Get-Content** command is enclosed in parentheses to make sure that it runs before the New-PSSession command.
 
 The second command stores a **Get-EventLog** command string, in quotation marks, in the $c variable.
 

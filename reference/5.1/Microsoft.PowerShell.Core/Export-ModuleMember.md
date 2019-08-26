@@ -1,11 +1,12 @@
 ---
-ms.date:  06/09/2017
-schema:  2.0.0
-locale:  en-us
-keywords:  powershell,cmdlet
-online version:  http://go.microsoft.com/fwlink/?LinkId=821480
-external help file:  System.Management.Automation.dll-Help.xml
-title:  Export-ModuleMember
+external help file: System.Management.Automation.dll-Help.xml
+keywords: powershell,cmdlet
+locale: en-us
+Module Name: Microsoft.PowerShell.Core
+ms.date: 06/09/2017
+online version: http://go.microsoft.com/fwlink/?LinkId=821480
+schema: 2.0.0
+title: Export-ModuleMember
 ---
 
 # Export-ModuleMember
@@ -103,7 +104,7 @@ These commands show how multiple **Export-ModuleMember** commands are interprete
 These commands create three functions and one alias, and then they export two of the functions and the alias.
 
 Without the **Export-ModuleMember** commands, all three of the functions and the alias would be exported.
-With the **Export-ModuleMember** commands, only the **Get-Test** and **Start-Test** functions and the STT alias are exported.
+With the **Export-ModuleMember** commands, only the **New-Test** and **Start-Test** functions and the STT alias are exported.
 
 ### Example 6: Export members in a dynamic module
 

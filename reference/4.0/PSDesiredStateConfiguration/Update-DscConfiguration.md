@@ -53,7 +53,7 @@ The console does not accept additional commands until the current command finish
 
 ### -CimSession
 Runs the cmdlet in a remote session or on a remote computer.
-Enter a computer name or a session object, such as the output of a [New-CimSession](https://docs.microsoft.com/en-us/powershell/module/cimcmdlets/new-cimsession) or [Get-CimSession](https://docs.microsoft.com/en-us/powershell/module/cimcmdlets/get-cimsession) cmdlet.
+Enter a computer name or a session object, such as the output of a [New-CimSession](https://docs.microsoft.com/powershell/module/cimcmdlets/new-cimsession) or [Get-CimSession](https://docs.microsoft.com/powershell/module/cimcmdlets/get-cimsession) cmdlet.
 The default is the current session on the local computer.
 
 ```yaml
@@ -105,7 +105,7 @@ Accept wildcard characters: False
 Specifies a friendly name for a job.
 If you specify this parameter, the cmdlet runs as a job, and it returns a **Job** object.
 
-By default, Windows PowerShell® assigns the name JobN where N is an integer.
+By default, Windows PowerShell assigns the name JobN where N is an integer.
 
 If you specify the **Wait** parameter, do not specify this parameter.
 

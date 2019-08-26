@@ -5,11 +5,9 @@ locale:  en-us
 keywords:  powershell,cmdlet
 title:  about_Jobs
 ---
-
 # About Jobs
 
 ## SHORT DESCRIPTION
-
 Provides information about how PowerShell background jobs run a
 command or expression in the background without interacting with the
 current session.
@@ -67,6 +65,17 @@ object and saves the resulting job object in the \$job variable.
 ```powershell
 $job = Start-Job -ScriptBlock {Get-Process}
 ```
+
+You can also use `&` to start jobs.
+The following command is functionally equivalent to the command above.
+
+```powershell
+$job = Get-Process &
+```
+
+The `&` is called the ampersand background operator.
+For more information on the ampersand background operator,
+see [ampersand background operator](about_Operators.md#ampersand-background-operator-).
 
 You can also use the `Get-Job` cmdlet to get objects that represent the jobs
 started in the current session. `Get-Job` returns the same job object that

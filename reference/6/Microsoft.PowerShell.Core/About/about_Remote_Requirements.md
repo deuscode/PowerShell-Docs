@@ -5,11 +5,9 @@ locale:  en-us
 keywords:  powershell,cmdlet
 title:  about_Remote_Requirements
 ---
-
 # About Remote Requirements
 
 ## SHORT DESCRIPTION
-
 Describes the system requirements and configuration requirements for running
 remote commands in PowerShell.
 
@@ -26,8 +24,7 @@ using Microsoft .NET Framework methods to retrieve the objects. They do not
 use the PowerShell remoting infrastructure. The requirements in this
 document do not apply to these cmdlets.
 
-To find the cmdlets that have a ComputerName parameter but do not use Windows
-PowerShell remoting, read the description of the ComputerName parameter of the
+To find the cmdlets that have a ComputerName parameter but do not use PowerShell remoting, read the description of the ComputerName parameter of the
 cmdlets.
 
 ## SYSTEM REQUIREMENTS
@@ -89,7 +86,7 @@ permission to connect to the computer remotely by changing the security
 descriptors on the default session configurations and by creating new session
 configurations with different security descriptors.
 
-For more informations about session configurations, see
+For more information about session configurations, see
 [about_Session_Configurations](about_Session_Configurations.md).
 
 ## WINDOWS NETWORK LOCATIONS
@@ -112,7 +109,7 @@ remote access.
 
 To enable remoting on client versions of Windows with public networks, use the
 SkipNetworkProfileCheck parameter of the Enable-PSRemoting cmdlet. It creates
-a firewall rule that that allows remote access only from computers in the same
+a firewall rule that allows remote access only from computers in the same
 local subnet.
 
 To remove the local subnet restriction on public networks and allow remote
@@ -276,8 +273,7 @@ $session = New-PSSession -Computer <hostname> -Credential $cred `
 > Authentication in
 > [Authentication for Remote Connections](https://msdn.microsoft.com/en-us/library/aa384295(v=vs.85).aspx)
 
-
-# SEE ALSO
+## SEE ALSO
 
 [about_Remote](about_Remote.md)
 

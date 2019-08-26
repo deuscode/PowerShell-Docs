@@ -1,13 +1,13 @@
 ---
-ms.date:  06/09/2017
-schema:  2.0.0
-locale:  en-us
-keywords:  powershell,cmdlet
-online version:  http://go.microsoft.com/fwlink/?LinkId=822329
-external help file:  PSModule-help.xml
-title:  New-ScriptFileInfo
+external help file: PSModule-help.xml
+keywords: powershell,cmdlet
+locale: en-us
+Module Name: PowerShellGet
+ms.date: 06/09/2017
+online version: http://go.microsoft.com/fwlink/?LinkId=822329
+schema: 2.0.0
+title: New-ScriptFileInfo
 ---
-
 # New-ScriptFileInfo
 
 ## SYNOPSIS
@@ -16,19 +16,22 @@ Creates a script file with metadata.
 ## SYNTAX
 
 ```
-New-ScriptFileInfo [[-Path] <String>] [-Version <Version>] [-Author <String>] -Description <String>
+New-ScriptFileInfo [[-Path] <String>] [-Version <String>] [-Author <String>] -Description <String>
  [-Guid <Guid>] [-CompanyName <String>] [-Copyright <String>] [-RequiredModules <Object[]>]
  [-ExternalModuleDependencies <String[]>] [-RequiredScripts <String[]>]
  [-ExternalScriptDependencies <String[]>] [-Tags <String[]>] [-ProjectUri <Uri>] [-LicenseUri <Uri>]
- [-IconUri <Uri>] [-ReleaseNotes <String[]>] [-PassThru] [-Force] [-WhatIf] [-Confirm] [<CommonParameters>]
+ [-IconUri <Uri>] [-ReleaseNotes <String[]>] [-PrivateData <String>] [-PassThru] [-Force] [-WhatIf] [-Confirm]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
+
 The **New-ScriptFileInfo** cmdlet creates a PowerShell script file, including metadata about the script.
 
 ## EXAMPLES
 
 ### Example 1: Create a script file and specify its version, author, and description
+
 ```
 PS C:\> New-ScriptFileInfo -Path "\temp\Temp-Scriptfile.ps1" -Version 1.0 -Author "pattif@contoso.com" -Description "My test script file description goes here"
 PS C:\> Get-Content -Path "\temp\Temp-Scriptfile.ps1"
@@ -80,10 +83,11 @@ The first command creates the script file Temp-Scriptfile.ps1 and sets the Versi
 The second command uses the Get-Content cmdlet to get the contents of the script file and display them.
 
 ### Example 2: Create a script file with all of the metadata properties
+
 ```
 PS C:\> New-ScriptFileInfo -Path "C:\temp\temp_scripts\New-ScriptFile.ps1" -Verbose
 >> -Version 1.0 -Author pattif -Description "my new script file test" -CompanyName "Contoso Corporation" `
->> -Copyright "Â© 2015 Contoso Corporation. All rights reserved." -ExternalModuleDependencies 'ff','bb' `
+>> -Copyright "2015 Contoso Corporation. All rights reserved." -ExternalModuleDependencies 'ff','bb' `
 >> -RequiredScripts 'Start-WFContosoServer', 'Stop-ContosoServerScript' `
 >> -ExternalScriptDependencies Stop-ContosoServerScript -Tags @('Tag1', 'Tag2', 'Tag3') `
 >> -ProjectUri https://contoso.com -LicenseUri "https://contoso.com/License" -IconUri 'https://contoso.com/Icon' `
@@ -108,7 +112,7 @@ VERBOSE: Performing the operation "Creating the 'C:\temp\temp_scripts\New-Script
 
 .COMPANYNAME Microsoft Corporation
 
-.COPYRIGHT Â© 2015 Microsoft Corporation. All rights reserved.
+.COPYRIGHT 2015 Microsoft Corporation. All rights reserved.
 
 .TAGS Tag1 Tag2 Tag3
 
@@ -150,12 +154,13 @@ Feature 5
 Param()
 ```
 
-This command creates creates a script file New-ScriptFile.ps1 with all of its metadata properties.
+This command creates a script file New-ScriptFile.ps1 with all of its metadata properties.
 The *Verbose* parameter specifies that the command display verbose output.
 
 ## PARAMETERS
 
 ### -Author
+
 Specifies the script author.
 
 ```yaml
@@ -171,6 +176,7 @@ Accept wildcard characters: False
 ```
 
 ### -CompanyName
+
 Specifies the company or vendor who created the script.
 
 ```yaml
@@ -186,6 +192,7 @@ Accept wildcard characters: False
 ```
 
 ### -Copyright
+
 Specifies a copyright statement for the script.
 
 ```yaml
@@ -201,6 +208,7 @@ Accept wildcard characters: False
 ```
 
 ### -Description
+
 Specifies a description for the script.
 
 ```yaml
@@ -216,6 +224,7 @@ Accept wildcard characters: False
 ```
 
 ### -ExternalModuleDependencies
+
 Specifies an array of external module dependencies.
 
 ```yaml
@@ -231,6 +240,7 @@ Accept wildcard characters: False
 ```
 
 ### -ExternalScriptDependencies
+
 Specifies an array of external script dependencies.
 
 ```yaml
@@ -246,6 +256,7 @@ Accept wildcard characters: False
 ```
 
 ### -Force
+
 Forces the command to run without asking for user confirmation.
 
 ```yaml
@@ -261,6 +272,7 @@ Accept wildcard characters: False
 ```
 
 ### -Guid
+
 Specifies a unique ID for the script.
 
 ```yaml
@@ -276,6 +288,7 @@ Accept wildcard characters: False
 ```
 
 ### -IconUri
+
 Specifies the URL of an icon for the script.
 The specified icon is displayed on the gallery web page for the script.
 
@@ -292,6 +305,7 @@ Accept wildcard characters: False
 ```
 
 ### -LicenseUri
+
 Specifies the URL of licensing terms.
 
 ```yaml
@@ -307,6 +321,7 @@ Accept wildcard characters: False
 ```
 
 ### -PassThru
+
 Returns an object representing the item with which you are working.
 By default, this cmdlet does not generate any output.
 
@@ -323,6 +338,7 @@ Accept wildcard characters: False
 ```
 
 ### -Path
+
 Specifies the path to the module manifest file to update.
 Wildcards are permitted.
 The default location is the current directory (.)
@@ -333,13 +349,30 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 1
+Position: 0
 Default value: None
 Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
+### -PrivateData
+
+Specifies private data for the script.
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -ProjectUri
+
 Specifies the URL of a web page about this project.
 
 ```yaml
@@ -355,6 +388,7 @@ Accept wildcard characters: False
 ```
 
 ### -ReleaseNotes
+
 Specifies a string array that contains release notes or comments that you want to be available to users of this version of the script.
 
 ```yaml
@@ -370,6 +404,7 @@ Accept wildcard characters: False
 ```
 
 ### -RequiredModules
+
 Specifies modules that must be in the global session state.
 If the required modules are not in the global session state, PowerShell imports them.
 
@@ -386,6 +421,7 @@ Accept wildcard characters: False
 ```
 
 ### -RequiredScripts
+
 Specifies an array of required scripts.
 
 ```yaml
@@ -401,6 +437,7 @@ Accept wildcard characters: False
 ```
 
 ### -Tags
+
 Specifies an array of tags.
 
 ```yaml
@@ -416,10 +453,11 @@ Accept wildcard characters: False
 ```
 
 ### -Version
+
 Specifies the version of the script.
 
 ```yaml
-Type: Version
+Type: String
 Parameter Sets: (All)
 Aliases:
 
@@ -431,6 +469,7 @@ Accept wildcard characters: False
 ```
 
 ### -Confirm
+
 Prompts you for confirmation before running the cmdlet.
 
 ```yaml
@@ -446,6 +485,7 @@ Accept wildcard characters: False
 ```
 
 ### -WhatIf
+
 Shows what would happen if the cmdlet runs.
 The cmdlet is not run.
 
@@ -462,6 +502,7 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
+
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS

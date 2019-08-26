@@ -1,11 +1,12 @@
 ---
-ms.date:  06/09/2017
-schema:  2.0.0
-locale:  en-us
-keywords:  powershell,cmdlet
-online version:  http://go.microsoft.com/fwlink/?LinkId=821468
-external help file:  System.Management.Automation.dll-Help.xml
-title:  Add-History
+external help file: System.Management.Automation.dll-help.xml
+keywords: powershell,cmdlet
+locale: en-us
+Module Name: Microsoft.PowerShell.Core
+ms.date: 06/09/2017
+online version: http://go.microsoft.com/fwlink/?LinkId=821468
+schema: 2.0.0
+title: Add-History
 ---
 
 # Add-History
@@ -138,7 +139,7 @@ This cmdlet returns a **HistoryInfo** object if you specify the *PassThru* param
 Otherwise, this cmdlet does not generate any output.
 
 ## NOTES
-* The session history is a list of the commands entered during the session together with the ID. The session history represents the order of execution, the status, and the start and end times of the command. As you enter each command, Windows PowerShell adds it to the history so that you can reuse it. For more information about the session history, see about_History.
+* The session history is a list of the commands entered during the session together with the ID. The session history represents the order of execution, the status, and the start and end times of the command. As you enter each command, Windows PowerShell adds it to the history so that you can reuse it. For more information about the session history, see [about_History](About/about_History.md).
 
   To specify the commands to add to the history, use the *InputObject* parameter.
 The **Add-History** command accepts only **HistoryInfo** objects, such as those returned for each command by the **Get-History** cmdlet.
@@ -153,8 +154,6 @@ For more information, see the examples.
 If you intend to pass the objects back to **Add-History**, do not use the *NoTypeInformation* parameter of the **Export-Csv** cmdlet and do not delete the type information, column headings, or any fields in the file.
 
   To modify the session history, export the session to a CSV or XML file, modify the file, import the file, and use **Add-History** to append it to the current session history.
-
-*
 
 ## RELATED LINKS
 

@@ -4,11 +4,9 @@ schema:  2.0.0
 keywords:  powershell,cmdlet
 title:  about_Assignment_Operators
 ---
-
 # About Assignment Operators
 
 ## SHORT DESCRIPTION
-
 Describes how to use operators to assign values to variables.
 
 ## LONG DESCRIPTION
@@ -217,7 +215,7 @@ $a
 ```
 
 ```
-PowerShell
+Windows PowerShell
 ```
 
 When the value of the variable is an array, the `+=` operator appends the
@@ -499,7 +497,7 @@ $a
 3
 ```
 
-# THE INCREMENT AND DECREMENT OPERATORS
+## THE INCREMENT AND DECREMENT OPERATORS
 
 The increment operator `++` increases the value of a variable by 1. When
 you use the increment operator in a simple statement, no value is returned.
@@ -676,8 +674,7 @@ $a.GetType().FullName
 System.String
 ```
 
-If the first value that is assigned to the variable is a string, Windows
-PowerShell treats all operations as string operations and casts new values
+If the first value that is assigned to the variable is a string, PowerShell treats all operations as string operations and casts new values
 to strings. This occurs in the following example:
 
 ```powershell
@@ -806,7 +803,7 @@ following:
 Tuesday, May 31, 2005 12:00:00 AM
 ```
 
-# ASSIGNING MULTIPLE VARIABLES
+## ASSIGNING MULTIPLE VARIABLES
 
 In PowerShell, you can assign values to multiple variables by using
 a single command. The first element of the assignment value is assigned to

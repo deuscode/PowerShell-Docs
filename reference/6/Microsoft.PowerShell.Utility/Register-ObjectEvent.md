@@ -1,11 +1,12 @@
 ---
-ms.date:  06/09/2017
-schema:  2.0.0
-locale:  en-us
-keywords:  powershell,cmdlet
-online version:  http://go.microsoft.com/fwlink/?LinkId=821845
-external help file:  Microsoft.PowerShell.Commands.Utility.dll-Help.xml
-title:  Register-ObjectEvent
+external help file: Microsoft.PowerShell.Commands.Utility.dll-Help.xml
+keywords: powershell,cmdlet
+locale: en-us
+Module Name: Microsoft.PowerShell.Utility
+ms.date: 06/09/2017
+online version: http://go.microsoft.com/fwlink/?LinkId=821845
+schema: 2.0.0
+title: Register-ObjectEvent
 ---
 
 # Register-ObjectEvent
@@ -140,7 +141,7 @@ The remaining commands use the call operator (&) to invoke the command in the mo
 You can use the call operator to invoke any command in a module, including commands that are not exported.
 In this case, the commands show the random number that is being generated when the Elapsed event occurs.
 
-For more information about modules, see about_Modules.
+For more information about modules, see [about_Modules](../Microsoft.PowerShell.Core/About/about_Modules.md).
 
 ## PARAMETERS
 
@@ -161,7 +162,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 102
+Position: 101
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -183,7 +184,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: True
-Position: 2
+Position: 1
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -216,7 +217,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: True
-Position: 1
+Position: 0
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -264,7 +265,7 @@ Specifies a name that you select for the subscription.
 The name that you select must be unique in the current session.
 The default value is the GUID that PowerShell assigns.
 
-The value of this parameter appears in the value of the SourceIdentifier property of the subcriber object and of all event objects associated with this subscription.
+The value of this parameter appears in the value of the SourceIdentifier property of the subscriber object and of all event objects associated with this subscription.
 
 ```yaml
 Type: String
@@ -272,7 +273,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 101
+Position: 100
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False

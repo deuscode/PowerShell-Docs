@@ -1,11 +1,12 @@
 ---
-ms.date:  06/09/2017
-schema:  2.0.0
-locale:  en-us
-keywords:  powershell,cmdlet
-online version:  http://go.microsoft.com/fwlink/?LinkId=821668
-external help file:  PSModule-help.xml
-title:  Register-PSRepository
+external help file: PSModule-help.xml
+keywords: powershell,cmdlet
+locale: en-us
+Module Name: PowerShellGet
+ms.date: 06/09/2017
+online version: http://go.microsoft.com/fwlink/?LinkId=821668
+schema: 2.0.0
+title: Register-PSRepository
 ---
 
 # Register-PSRepository
@@ -56,14 +57,14 @@ myNuGetSource                            https://myget.c...                     
 
 The first command registers https://www.myget.org/F/powershellgetdemo/ as a repository for the current user.
 After myNuGetSource is registered, you can explicitly reference it when searching for, installing, and publishing modules.
-Because the *PackageManamentProvider* parameter isn't specified, the repository is not explicitly associated with a OneGet packkage provider, so PowerShellGet polls available package providers and associates it with the NuGet provider.
+Because the *PackageManagementProvider* parameter isn't specified, the repository is not explicitly associated with a OneGet package provider, so PowerShellGet polls available package providers and associates it with the NuGet provider.
 
 The second command gets registered repositories and displays the results.
 
 ## PARAMETERS
 
 ### -Credential
-
+Specifies credentials of an account that has rights to register a repository.
 
 ```yaml
 Type: PSCredential
@@ -78,7 +79,6 @@ Accept wildcard characters: False
 ```
 
 ### -Default
-
 
 ```yaml
 Type: SwitchParameter
@@ -225,6 +225,8 @@ Accept wildcard characters: False
 
 ### -SourceLocation
 Specifies the URI for discovering and installing modules from this repository.
+A URI can be a NuGet server feed (most common situation), HTTP, HTTPS, FTP or file location.
+
 For example, for NuGet-based repositories, the source location is similar to http://someNuGetUrl.com/api/v2.
 
 ```yaml

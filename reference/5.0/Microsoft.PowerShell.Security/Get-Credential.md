@@ -10,7 +10,6 @@ title:  Get-Credential
 # Get-Credential
 
 ## SYNOPSIS
-
 Gets a credential object based on a user name and password.
 
 ## SYNTAX
@@ -261,8 +260,7 @@ Accept wildcard characters: False
 
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
 -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose,
--WarningAction, and -WarningVariable. For more information, see about_CommonParameters
-(http://go.microsoft.com/fwlink/?LinkID=113216).
+-WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 

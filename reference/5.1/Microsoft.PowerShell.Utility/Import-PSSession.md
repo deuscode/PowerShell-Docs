@@ -1,11 +1,12 @@
 ---
-ms.date:  06/09/2017
-schema:  2.0.0
-locale:  en-us
-keywords:  powershell,cmdlet
-online version:  http://go.microsoft.com/fwlink/?LinkId=821821
-external help file:  Microsoft.PowerShell.Commands.Utility.dll-Help.xml
-title:  Import-PSSession
+external help file: Microsoft.PowerShell.Commands.Utility.dll-Help.xml
+keywords: powershell,cmdlet
+locale: en-us
+Module Name: Microsoft.PowerShell.Utility
+ms.date: 06/09/2017
+online version: http://go.microsoft.com/fwlink/?LinkId=821821
+schema: 2.0.0
+title: Import-PSSession
 ---
 
 # Import-PSSession
@@ -442,7 +443,7 @@ Wildcards are not permitted.
 
 **Import-PSSession** cannot import providers from a snap-in.
 
-For more information, see about_PSSnapins and about_Modules.
+For more information, see about_PSSnapins and [about_Modules](../Microsoft.PowerShell.Core/About/about_Modules.md).
 
 ```yaml
 Type: String[]

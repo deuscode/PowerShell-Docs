@@ -1,9 +1,10 @@
 ---
-ms.date:  06/09/2017
-schema:  2.0.0
-locale:  en-us
-keywords:  powershell,cmdlet
-external help file:  Microsoft.Management.Infrastructure.CimCmdlets.dll-Help.xml
+external help file: Microsoft.Management.Infrastructure.CimCmdlets.dll-Help.xml
+keywords: powershell,cmdlet
+locale: en-us
+Module Name: CimCmdlets
+ms.date: 06/09/2017
+schema: 2.0.0
 ---
 
 # Get-CimClass
@@ -37,61 +38,61 @@ Unlike a CIM instance, CIM classes do not contain the CIM session or computer na
 ## EXAMPLES
 
 ### Example 1: Get all the class definitions
-```
-PS C:\>Get-CimClass
+```powershell
+Get-CimClass
 ```
 
 This command gets all the class definitions under the namespace root/cimv2.
 
 ### Example 2: Get the classes with a specific name
-```
-PS C:\>Get-CimClass -ClassName *disk*
+```powershell
+Get-CimClass -ClassName *disk*
 ```
 
 This command gets the classes that contain the word disk in their names.
 
 ### Example 3: Get the classes with a specific method name
-```
-PS C:\>Get-CimClass -ClassName Win32* -MethodName Term*
+```powershell
+Get-CimClass -ClassName Win32* -MethodName Term*
 ```
 
 This command gets the classes that start with the name Win32 and have a method name that starts with Term.
 
 ### Example 4: Get the classes with a specific property name
-```
-PS C:\>Get-CimClass -ClassName Win32* -PropertyName Handle
+```powershell
+Get-CimClass -ClassName Win32* -PropertyName Handle
 ```
 
 This command gets the classes that start with the name Win32 and have a property named Handle.
 
 ### Example 5: Get the classes with a specific qualifier name
-```
-PS C:\>Get-CimClass -ClassName Win32*Disk* -QualifierName Association
+```powershell
+Get-CimClass -ClassName Win32*Disk* -QualifierName Association
 ```
 
 This command gets the classes that start with the name Win32, contain the word Disk in their names and have the specified qualifier Association.
 
 ### Example 6: Get the class definitions from a specific namespace
-```
-PS C:\>Get-CimClass -Namespace root/standardCimv2 -ClassName *Net*
+```powershell
+Get-CimClass -Namespace root/standardCimv2 -ClassName *Net*
 ```
 
 This command gets the class definitions that contain the word Net in their names from the specified namespace root/standardCimv2.
 
 ### Example 7: Get the class definitions from a remote server
-```
-PS C:\>Get-CimClass -ClassName *disk* -ComputerName Server01, Server02
+```powershell
+Get-CimClass -ClassName *disk* -ComputerName Server01, Server02
 ```
 
 This command gets the class definitions that contain the word disk in their names from the specified remote servers Server01 and Server02.
 
 ### Example 8: Get the classes by using a CIM session
-```
-PS C:\>$s = New-CimSession -ComputerName Server01, Server02
+```powershell
+$s = New-CimSession -ComputerName Server01, Server02
 
 
 
-PS C:\>Get-CimClass -ClassName *disk* -CimSession $s
+Get-CimClass -ClassName *disk* -CimSession $s
 ```
 
 This set of commands creates a session with multiple computers and stores it into a variable $s using the New-CimSession cmdlet, and then gets the classes using the Get-CimClass cmdlet.
@@ -125,7 +126,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 1
+Position: 0
 Default value: None
 Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
@@ -182,7 +183,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 2
+Position: 1
 Default value: None
 Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
@@ -241,8 +242,7 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
-For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 

@@ -5,11 +5,9 @@ locale:  en-us
 keywords:  powershell,cmdlet
 title:  about_Group_Policy_Settings
 ---
-
 # About Group Policy Settings
 
 ## SHORT DESCRIPTION
-
 Describes the Group Policy settings for PowerShell
 
 ## LONG DESCRIPTION
@@ -35,7 +33,7 @@ over Group Policy settings in the Computer Configuration path.
 
 The policies are as follows:
 
-- Turn on Script Execution: Sets the Windows PowerShell execution policy.
+- Turn on Script Execution: Sets the PowerShell execution policy.
 - Turn on Module Logging: Sets the **LogPipelineExecutionDetails** property of
   modules.
 - Set the default source path for `Update-Help`: Sets the source for
@@ -43,7 +41,7 @@ The policies are as follows:
 
 To download spreadsheets that list all of the Group Policy settings for
 each version of Windows, see
-[Group Policy Settings Reference for Windows and Windows Server](http://go.microsoft.com/fwlink/?LinkId=261775)
+[Group Policy Settings Reference for Windows and Windows Server](https://go.microsoft.com/fwlink/?LinkId=261775)
 in the Microsoft Download Center.
 
 ## TURN ON SCRIPT EXECUTION

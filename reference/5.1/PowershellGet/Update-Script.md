@@ -1,11 +1,12 @@
 ---
-ms.date:  06/09/2017
-schema:  2.0.0
-locale:  en-us
-keywords:  powershell,cmdlet
-online version:  http://go.microsoft.com/fwlink/?LinkId=822342
-external help file:  PSModule-help.xml
-title:  Update-Script
+external help file: PSModule-help.xml
+keywords: powershell,cmdlet
+locale: en-us
+Module Name: PowerShellGet
+ms.date: 06/09/2017
+online version: http://go.microsoft.com/fwlink/?LinkId=822342
+schema: 2.0.0
+title: Update-Script
 ---
 
 # Update-Script
@@ -16,9 +17,9 @@ Updates a script.
 ## SYNTAX
 
 ```
-Update-Script [[-Name] <String[]>] [-RequiredVersion <Version>] [-MaximumVersion <Version>] [-Proxy <Uri>]
- [-ProxyCredential <PSCredential>] [-Credential <PSCredential>] [-Force] [-WhatIf] [-Confirm]
- [<CommonParameters>]
+Update-Script [[-Name] <String[]>] [-RequiredVersion <String>] [-MaximumVersion <String>] [-Proxy <Uri>]
+ [-ProxyCredential <PSCredential>] [-Credential <PSCredential>] [-Force] [-AllowPrerelease] [-AcceptLicense]
+ [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -32,7 +33,7 @@ PS C:\> Update-Script -Name "Fabrikam-Script" -RequiredVersion 1.5
 PS C:\> Get-InstalledScript -Name "Fabrikam-Script"
 Version    Name                                Type       Repository           Description
 -------    ----                                ----       ----------           -----------
-1.5        Fabrikam-Script                     Script     local1               Description for the Fabrkiam-Script script
+1.5        Fabrikam-Script                     Script     local1               Description for the Fabrikam-Script script
 ```
 
 The first command updates the script Fabrikam-Script to version 1.5.
@@ -41,23 +42,38 @@ The second command gets Fabrikam-Script and displays the results.
 
 ## PARAMETERS
 
-### -Confirm
-Prompts you for confirmation before running the cmdlet.
+### -AcceptLicense
+Automatically accept the license agreement during installation if the package requires it.
+
 
 ```yaml
 Type: SwitchParameter
 Parameter Sets: (All)
-Aliases: cf
+Aliases:
 
 Required: False
 Position: Named
-Default value: False
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -AllowPrerelease
+Allows you to update a script with the newer script marked as a prerelease.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
 ### -Credential
-
 
 ```yaml
 Type: PSCredential
@@ -91,7 +107,7 @@ Specifies the maximum, or newest, version of the script to update.
 The *MaximumVersion* and *RequiredVersion* parameters are mutually exclusive; you cannot use both parameters in the same command.
 
 ```yaml
-Type: Version
+Type: String
 Parameter Sets: (All)
 Aliases:
 
@@ -152,7 +168,7 @@ Specifies the exact version number of the script to update.
 The *MinimumVersion* and *RequiredVersion* parameters are mutually exclusive; you cannot use both parameters in the same command.
 
 ```yaml
-Type: Version
+Type: String
 Parameter Sets: (All)
 Aliases:
 
@@ -160,6 +176,21 @@ Required: False
 Position: Named
 Default value: None
 Accept pipeline input: True (ByPropertyName)
+Accept wildcard characters: False
+```
+
+### -Confirm
+Prompts you for confirmation before running the cmdlet.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases: cf
+
+Required: False
+Position: Named
+Default value: False
+Accept pipeline input: False
 Accept wildcard characters: False
 ```
 

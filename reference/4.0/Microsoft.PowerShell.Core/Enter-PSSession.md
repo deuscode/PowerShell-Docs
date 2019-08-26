@@ -91,7 +91,7 @@ The first command uses the Enter-PSSession cmdlet to start an interactive sessio
 ```powershell
 Enter-PSSession -ComputerName Server01
 [Server01]: PS C:\>
-[Server01]: PS> Get-Process Powershell > C:\ps-test\Process.txt
+[Server01]: PS> Get-Process PowerShell > C:\ps-test\Process.txt
 [Server01]: PS> exit
 PS C:\>
 ```
@@ -279,7 +279,7 @@ Aliases:
 
 Required: False
 Position: Named
-Default value: Microsoft.PowreShell
+Default value: Microsoft.PowerShell
 Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
